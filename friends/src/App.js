@@ -3,17 +3,23 @@ import { Route } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 
-const LoginForm = () => {
-  const [isLoading, setIsLoading] = useState(false);
+const FriendsList = () => {
+  return (
+    <div>
+      <h1>friends list</h1>
+    </div>
+  );
+};
+
+const LoginForm = props => {
+  // const [isLoading, setIsLoading] = useState(false);
   const [formValues, setFormValues] = useState({ username: '', password: '' });
 
   const handleInputChange = e => {
-    e.preventDefault();
     setFormValues({
       ...formValues,
       [e.target.name]: e.target.value
     });
-    console.log(e.target.value);
   };
 
   const handleLogin = e => {
@@ -22,8 +28,12 @@ const LoginForm = () => {
       .post('http://localhost:5000/api/login', formValues)
       .then(res => {
         localStorage.setItem('token', res.data.payload);
+        props.history.push('/friends');
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log(err.response.data.error);
+        setFormValues({ username: '', password: '' });
+      });
   };
 
   return (
@@ -54,6 +64,7 @@ function App() {
     <div className='App'>
       <h1>Hello World!</h1>
       <Route exact path='/' component={LoginForm} />
+      <Route path='/friends' component={FriendsList} />
     </div>
   );
 }
