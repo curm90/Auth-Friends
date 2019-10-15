@@ -5,6 +5,7 @@ import FriendForm from './FriendForm';
 
 const FriendsList = () => {
   const [friends, setFriends] = useState([]);
+  const [friendToEdit, setFriendToEdit] = useState('');
 
   useEffect(() => {
     withAuth()
@@ -33,11 +34,33 @@ const FriendsList = () => {
       .catch(err => console.log(err));
   };
 
+  const editFriend = friend => {
+    withAuth()
+      .put(`/friends/${friend.id}`, friend)
+      .then(res => {
+        setFriends(res.data);
+      })
+      .catch(err => console.log(err));
+  };
+
+  const onFriendToEditChange = friend => {
+    setFriendToEdit(friend);
+  };
+
   return (
     <div>
-      <FriendForm addFriend={addFriend} />
+      <FriendForm
+        addFriend={addFriend}
+        editFriend={editFriend}
+        friendToEdit={friendToEdit}
+      />
       {friends.map(friend => (
-        <Friend key={friend.id} friend={friend} deleteFriend={deleteFriend} />
+        <Friend
+          key={friend.id}
+          friend={friend}
+          deleteFriend={deleteFriend}
+          onFriendToEditChange={onFriendToEditChange}
+        />
       ))}
     </div>
   );

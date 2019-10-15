@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const FriendForm = ({ addFriend }) => {
+const FriendForm = ({ addFriend, editFriend, friendToEdit }) => {
   const [newFriend, setNewFriend] = useState({ name: '', age: '', email: '' });
 
   const handleInputChange = e => {
@@ -9,10 +9,19 @@ const FriendForm = ({ addFriend }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-
-    addFriend({ ...newFriend, id: Date.now() });
+    if (friendToEdit) {
+      editFriend(newFriend);
+    } else {
+      addFriend({ ...newFriend, id: Date.now() });
+    }
     setNewFriend({ name: '', age: '', email: '' });
   };
+
+  useEffect(() => {
+    if (friendToEdit) {
+      setNewFriend({ ...friendToEdit });
+    }
+  }, [friendToEdit]);
 
   return (
     <div>
@@ -38,7 +47,7 @@ const FriendForm = ({ addFriend }) => {
           placeholder='Email'
           value={newFriend.email}
         />
-        <button>Add Friend</button>
+        <button>{friendToEdit ? 'Edit Friend' : 'AddFriend'}</button>
       </form>
     </div>
   );

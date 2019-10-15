@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Friend = ({ friend, deleteFriend }) => {
+const Friend = ({ friend, deleteFriend, onFriendToEditChange }) => {
   return (
     <div>
       <ul>
@@ -9,6 +9,7 @@ const Friend = ({ friend, deleteFriend }) => {
         <li>{friend.email}</li>
       </ul>
       <button onClick={() => deleteFriend(friend.id)}>Delete</button>
+      <button onClick={() => onFriendToEditChange(friend)}>Edit</button>
     </div>
   );
 };
