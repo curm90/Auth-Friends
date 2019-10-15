@@ -1,9 +1,11 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+
 import './App.css';
+
 import FriendsList from './components/FriendsList';
-import { LoginForm } from './components/LoginForm';
-import { PrivateRoute } from './components/PrivateRoute';
+import LoginForm from './components/LoginForm';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (

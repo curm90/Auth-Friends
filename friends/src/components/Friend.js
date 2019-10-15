@@ -1,5 +1,6 @@
 import React from 'react';
-export const Friend = ({ friend }) => {
+
+const Friend = ({ friend }) => {
   return (
     <div>
       <ul>
@@ -10,3 +11,5 @@ export const Friend = ({ friend }) => {
     </div>
   );
 };
+
+export default Friend;

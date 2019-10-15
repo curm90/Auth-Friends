@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { withAuth } from '../utils/withAuth';
-import { Friend } from './Friend';
+import withAuth from '../utils/withAuth';
+import Friend from './Friend';
 import FriendForm from './FriendForm';
 
 const FriendsList = () => {
