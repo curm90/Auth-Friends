@@ -40,7 +40,8 @@ const FriendsList = () => {
       .then(res => {
         setFriends(res.data);
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err))
+      .finally(setFriendToEdit(null));
   };
 
   const onFriendToEditChange = friend => {
@@ -54,14 +55,16 @@ const FriendsList = () => {
         editFriend={editFriend}
         friendToEdit={friendToEdit}
       />
-      {friends.map(friend => (
-        <Friend
-          key={friend.id}
-          friend={friend}
-          deleteFriend={deleteFriend}
-          onFriendToEditChange={onFriendToEditChange}
-        />
-      ))}
+      <div className='friends-container'>
+        {friends.map(friend => (
+          <Friend
+            key={friend.id}
+            friend={friend}
+            deleteFriend={deleteFriend}
+            onFriendToEditChange={onFriendToEditChange}
+          />
+        ))}
+      </div>
     </div>
   );
 };

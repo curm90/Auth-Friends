@@ -28,8 +28,8 @@ const LoginForm = props => {
       });
   };
   return (
-    <div>
-      <form onSubmit={handleLogin}>
+    <div className='login-container'>
+      <form className='login-form' onSubmit={handleLogin}>
         <input
           type='text'
           onChange={handleInputChange}

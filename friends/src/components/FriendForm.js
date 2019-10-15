@@ -9,6 +9,7 @@ const FriendForm = ({ addFriend, editFriend, friendToEdit }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
+
     if (friendToEdit) {
       editFriend(newFriend);
     } else {
@@ -17,6 +18,9 @@ const FriendForm = ({ addFriend, editFriend, friendToEdit }) => {
     setNewFriend({ name: '', age: '', email: '' });
   };
 
+  const isDisabled = () =>
+    !newFriend.name || !newFriend.age || !newFriend.email;
+
   useEffect(() => {
     if (friendToEdit) {
       setNewFriend({ ...friendToEdit });
@@ -24,7 +28,8 @@ const FriendForm = ({ addFriend, editFriend, friendToEdit }) => {
   }, [friendToEdit]);
 
   return (
-    <div>
+    <div className='form-container'>
+      <h2>Add A New Friend</h2>
       <form onSubmit={handleSubmit}>
         <input
           type='text'
@@ -47,7 +52,9 @@ const FriendForm = ({ addFriend, editFriend, friendToEdit }) => {
           placeholder='Email'
           value={newFriend.email}
         />
-        <button>{friendToEdit ? 'Edit Friend' : 'AddFriend'}</button>
+        <button className='submit-friend' disabled={isDisabled()}>
+          {friendToEdit ? 'Edit Friend' : 'AddFriend'}
+        </button>
       </form>
     </div>
   );
