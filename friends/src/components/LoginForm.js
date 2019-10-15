@@ -1,25 +1,30 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import withAuth from '../utils/withAuth';
 
 const LoginForm = props => {
-  const [formValues, setFormValues] = useState({ username: '', password: '' });
+  const [credentials, setCredentials] = useState({
+    username: '',
+    password: ''
+  });
+
   const handleInputChange = e => {
-    setFormValues({
-      ...formValues,
+    setCredentials({
+      ...credentials,
       [e.target.name]: e.target.value
     });
   };
+
   const handleLogin = e => {
     e.preventDefault();
-    axios
-      .post('http://localhost:5000/api/login', formValues)
+    withAuth()
+      .post('http://localhost:5000/api/login', credentials)
       .then(res => {
         localStorage.setItem('token', res.data.payload);
         props.history.push('/friends');
       })
       .catch(err => {
         console.log(err.response.data.error);
-        setFormValues({ username: '', password: '' });
+        setCredentials({ username: '', password: '' });
       });
   };
   return (
@@ -28,18 +33,18 @@ const LoginForm = props => {
         <input
           type='text'
           onChange={handleInputChange}
-          value={formValues.username}
+          value={credentials.username}
           placeholder='Username'
           name='username'
         />
         <input
           type='password'
           onChange={handleInputChange}
-          value={formValues.password}
+          value={credentials.password}
           placeholder='Password'
           name='password'
         />
-        <button>Login</button>
+        <button type='submit'>Login</button>
       </form>
     </div>
   );

@@ -24,11 +24,20 @@ const FriendsList = () => {
       .catch(err => console.log(err));
   };
 
+  const deleteFriend = id => {
+    withAuth()
+      .delete(`/friends/${id}`)
+      .then(res => {
+        setFriends(res.data);
+      })
+      .catch(err => console.log(err));
+  };
+
   return (
     <div>
       <FriendForm addFriend={addFriend} />
       {friends.map(friend => (
-        <Friend key={friend.id} friend={friend} />
+        <Friend key={friend.id} friend={friend} deleteFriend={deleteFriend} />
       ))}
     </div>
   );
