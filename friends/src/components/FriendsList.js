@@ -6,6 +6,7 @@ import FriendForm from './FriendForm';
 const FriendsList = () => {
   const [friends, setFriends] = useState([]);
   const [friendToEdit, setFriendToEdit] = useState('');
+  console.log(friends);
 
   useEffect(() => {
     withAuth()
@@ -54,6 +55,7 @@ const FriendsList = () => {
         addFriend={addFriend}
         editFriend={editFriend}
         friendToEdit={friendToEdit}
+        friends={friends}
       />
       <div className='friends-container'>
         {friends.map(friend => (

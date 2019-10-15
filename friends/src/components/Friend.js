@@ -30,7 +30,7 @@ const Friend = ({ friend, deleteFriend, onFriendToEditChange }) => {
           className='delete-friend'
           onClick={() => deleteFriend(friend.id)}
         >
-          X
+          x
         </button>
       </div>
     </div>

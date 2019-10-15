@@ -116,7 +116,7 @@ button:hover {
   justify-content: space-evenly;
   align-items: center;
   border-radius: 5px;
-  box-shadow: 4px 4px 7px #bdbaba;
+  box-shadow: 4px 5px 10px #4b4a4a;
 }
 
 .friend-info {
@@ -153,7 +153,7 @@ button:hover {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 5rem;
+  height: 5.5rem;
 }
 
 .login-container {
