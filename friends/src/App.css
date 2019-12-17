@@ -1,0 +1,182 @@
+.App {
+  text-align: center;
+}
+
+nav {
+  background: #353535;
+  padding: 2rem 0;
+  box-shadow: 0 5px 5px #8b8b8b;
+  margin-bottom: 3rem;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+nav ul li {
+  list-style: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: ease-out 0.1s;
+}
+
+nav ul li:hover {
+  transform: scale(1.2);
+  transition: ease-in 0.1s;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+.form-container {
+  border-bottom: 1px solid #bdbdbd;
+  width: 90%;
+  margin: 3rem auto;
+  padding-bottom: 2rem;
+}
+
+.form-container form {
+  height: 17rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 32rem;
+  margin: 0 auto;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 0.3rem;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  outline: none;
+}
+
+button {
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  background: #278b1e;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: ease-out 0.2s;
+  box-shadow: 0 2px 5px #a5a5a5;
+  width: 10rem;
+  outline: none;
+}
+
+button:hover {
+  transition: ease-in 0.2s;
+  background: #016b01;
+  box-shadow: 0 5px 5px #a5a5a5;
+}
+
+.delete-friend {
+  background: #ff1919;
+  box-shadow: 0 2px 5px #1f1e1e;
+  width: 3rem;
+}
+.delete-friend:hover {
+  background: #bd1e1e;
+  box-shadow: 0 5px 7px #181717;
+}
+
+.edit-friend {
+  width: 5rem;
+  box-shadow: 0 2px 5px #1f1e1e;
+}
+
+.edit-friend:hover {
+  box-shadow: 0 5px 7px #181717;
+}
+
+.friends-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 1rem;
+}
+
+.friend-container {
+  width: 25rem;
+  background: #353535;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  height: 20rem;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 4px 5px 10px #4b4a4a;
+}
+
+.friend-info {
+  height: 60%;
+  width: 100%;
+}
+
+.friend-container ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+  align-items: center;
+}
+
+.friend-container ul li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  width: 80%;
+  padding-bottom: 1rem;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  color: white;
+  border-bottom: 1px solid gray;
+}
+
+.friend-container ul li:last-child {
+  flex-direction: column;
+}
+
+.friend-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 5.5rem;
+}
+
+.login-container {
+  border-bottom: 1px solid #bdbdbd;
+  width: 90%;
+  margin: 3rem auto;
+  padding-bottom: 2rem;
+}
+
+.login-form {
+  height: 17rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 32rem;
+  margin: 0 auto;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 0.3rem;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  outline: none;
+}
